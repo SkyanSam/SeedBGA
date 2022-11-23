@@ -15,7 +15,7 @@ public class LineFollower : MonoBehaviour
         lineRenderer.startColor = lineRenderer.endColor = GetRandomColor();
         points.Add(GetRandomVector());
         points.Add(GetNextSegmentPoint());
-        points.Add(points[1]);
+        points.Add(new Vector3(points[1].x , points[1].y, points[1].z));
         points.Add(GetNextSegmentPoint());
     }
 
@@ -43,7 +43,7 @@ public class LineFollower : MonoBehaviour
     Vector3 GetNextSegmentPoint()
     {
         var rand = GetRandomVector();
-        if ((rand - points[points.Count]).magnitude >= minSegmentLength) return rand;
+        if ((rand - points[points.Count - 1]).magnitude >= minSegmentLength) return rand;
         else return GetNextSegmentPoint();
     }
     Color GetRandomColor()
