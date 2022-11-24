@@ -38,7 +38,8 @@ public class LineFollower : MonoBehaviour
     }
     Vector3 GetRandomVector()
     {
-        return new Vector3(Random.Range(-radius, radius), Random.Range(-radius, radius), Random.Range(-radius, radius));
+        //return new Vector3(Random.Range(-radius, radius), Random.Range(-radius, radius), Random.Range(-radius, radius));
+        return new Vector3(AdvancedRandom.ReverseGaussian(), AdvancedRandom.ReverseGaussian(), AdvancedRandom.ReverseGaussian()) * radius;
     }
     Vector3 GetNextSegmentPoint()
     {
