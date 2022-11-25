@@ -24,9 +24,12 @@ public class AdvancedRandom
         
         return Mathf.Max(Mathf.Min(v1 * s, max), -max) / max;
     }
+    public static float Rand()
+    {
+        return Mathf.Max(Mathf.Min(Random.Range(-1f,1f), max), -max) / max;
+    }
     public static float ReverseGaussian()
     {
-        return NextGaussian();
         var g = NextGaussian();
         var a = g / Mathf.Abs(g);
         return a * (1 - Mathf.Abs(g));
